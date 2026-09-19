@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Astrid ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Georgia, "Times New Roman", serif;
+    background: linear-gradient(135deg, #fff5f7, #ffdce5);
+    color: #4a1625;
+    overflow-x: hidden;
+}
+
+.hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    font-size: 25px;
+    opacity: 0.35;
+    animation: float 8s linear infinite;
+}
+
+.heart:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.heart:nth-child(2) {
+    left: 25%;
+    animation-delay: 2s;
+}
+
+.heart:nth-child(3) {
+    left: 45%;
+    animation-delay: 4s;
+}
+
+.heart:nth-child(4) {
+    left: 70%;
+    animation-delay: 1s;
+}
+
+.heart:nth-child(5) {
+    left: 90%;
+    animation-delay: 3s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.35;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    width: min(900px, 92%);
+    margin: auto;
+    padding: 60px 0;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.big-heart {
+    font-size: 70px;
+    animation: heartbeat 1.6s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+.small-title {
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 12px;
+    color: #a43a55;
+    margin-top: 15px;
+}
+
+h1 {
+    font-size: clamp(42px, 8vw, 75px);
+    margin: 15px 0;
+}
+
+.subtitle {
+    font-family: Arial, sans-serif;
+    color: #744552;
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 25px 0;
+}
+
+button {
+    border: none;
+    padding: 14px 22px;
+    border-radius: 50px;
+    background: #e11d48;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+}
+
+.secondary {
+    background: white;
+    color: #e11d48;
+    border: 1px solid #efb5c1;
+}
+
+/* Love Letter */
+.letter {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    background: #fffdf9;
+    border-radius: 22px;
+    padding: 0 30px;
+    margin: 20px auto;
+    max-width: 700px;
+    box-shadow: 0 10px 35px rgba(100, 30, 50, 0.12);
+    transition: all 0.8s ease;
+}
+
+.letter.open {
+    max-height: 2500px;
+    opacity: 1;
+    padding: 35px;
+}
+
+.letter p {
+    font-family: Arial, sans-serif;
+    color: #5b3741;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.letter .name {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: #e11d48;
+}
+
+.letter .important {
+    font-size: 22px;
+    font-weight: bold;
+    color: #4a1625;
+    text-align: center;
+    margin: 25px 0;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.75);
+    border: 1px solid #f3c5ce;
+    border-radius: 22px;
+    padding: 25px;
+}
+
+.card h2 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-family: Arial, sans-serif;
+    color: #744552;
+    line-height: 1.6;
+}
+
+.reasons {
+    margin-top: 20px;
+}
+
+.reason-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.reason {
+    background: white;
+    color: #6b3342;
+    border: 1px solid #f1cbd2;
+    border-radius: 18px;
+    min-height: 100px;
+    padding: 15px;
+}
+
+.surprise {
+    text-align: center;
+    background: rgba(255,255,255,0.65);
+    border-radius: 25px;
+    padding: 30px;
+    margin-top: 20px;
+}
+
+.surprise-text {
+    font-size: 22px;
+    line-height: 1.5;
+    margin-top: 20px;
+    min-height: 35px;
+}
+
+.footer {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #8b4c5c;
+    margin-top: 25px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 35px 0;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .reason-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .letter.open {
+        padding: 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="hearts">
+    <span class="heart">♥</span>
+    <span class="heart">♡</span>
+    <span class="heart">♥</span>
+    <span class="heart">♡</span>
+    <span class="heart">♥</span>
+</div>
+
+<main class="container">
+
+    <section class="hero">
+
+        <div class="big-heart">❤️</div>
+
+        <div class="small-title">
+            A little gift from my heart
+        </div>
+
+        <h1>
+            For Astrid
+        </h1>
+
+        <p class="subtitle">
+            Some things are too important to fit into a simple message.
+            So I made you this.
+        </p>
+
+    </section>
+
+    <div class="buttons">
+
+        <button id="openLetter">
+            💌 Open My Letter
+        </button>
+
+        <button id="surpriseButton" class="secondary">
+            🎁 Surprise Me
+        </button>
+
+    </div>
+
+    <!-- YOUR LOVE LETTER -->
+    <section id="letter" class="letter">
+
+        <p class="name">
+            Astrid,
+        </p>
+
+        <p>
+            I honestly don’t know if I’ll ever find the right words
+            to explain how much you mean to me. I could write a thousand
+            letters and still feel like none of them would be enough.
+        </p>
+
+        <p>
+            There’s something about you that I can’t put into words.
+            Maybe it’s your pretty face, those beautiful eyes of yours
+            that I could get lost in forever, or the way you’re almost
+            the same height as me, something I secretly find incredibly cute.
+        </p>
+
+        <p>
+            But it’s not just the way you look. It’s you.
+            Every little thing about you has become something I care
+            about more than I probably should.
+        </p>
+
+        <p>
+            I really, truly love you, Astrid.
+            And that’s what scares me the most.
+        </p>
+
+        <p>
+            Because when you genuinely love someone, the thought of
+            losing them hurts in a way you can’t explain.
+            I don’t want to wake up one day and have you become just
+            a memory. I don’t want to look back at our moments together
+            and wish I had said more, loved you harder, or told you
+            how important you were to me.
+        </p>
+
+        <p>
+            You mean so much more to me than I know how to express.
+            Your presence makes things feel different. Better.
+            And somehow, you've become someone I never want to imagine
+            my life without.
+        </p>
+
+        <p>
+            If I could ask for one thing, it would simply be for you
+            to stay. Stay when things are difficult. Stay when I’m not
+            perfect. Stay when I don’t know how to put my feelings
+            into words.
+        </p>
+
+        <p>
+            I don’t need everything to be perfect.
+            I just want you.
+        </p>
+
+        <p>
+            I love your eyes. I love your face.
+            I love being close to you.
+            But more than all of that, I love the person you are,
+            and I hope you understand just how special you are to me.
+        </p>
+
+        <p class="important">
+            Astrid, I don’t want to lose you. ❤️
+        </p>
+
+        <p>
+            And if there ever comes a moment when you doubt how much
+            I love you, please remember this:
+        </p>
+
+        <p>
+            Somewhere in this world, there is someone who looks at you
+            and thinks,
+            <em>“I really hope I get to keep this girl in my life.”</em>
+        </p>
+
+        <p>
+            That someone is me.
+        </p>
+
+        <p class="important">
+            I love you more than I know how to say.
+        </p>
+
+        <p>
+            I want the late night drives with our blend,
+            with my hand on your thigh.
+            Buying flowers from grandmas to support them because
+            you don’t like flowers that die after like 2 days.
+        </p>
+
+        <p>
+            I want my dream date with you, Astrid.
+            You are the girl I ever dreamed of,
+            and now I lost that dream girl and it hurts more than
+            everything ever could hurt me…
+        </p>
+
+        <p class="important">
+            ❤️ I love you, Astrid. ❤️
+        </p>
+
+    </section>
+
+<section class="spotify-section">
+    <div class="spotify-card">
+
+        <div class="spotify-icon">🎵</div>
+
+        <h2>Our Blend only for us ❤️</h2>
+
+        <p>
+            Put your headphones on and think of me. 💗
+        </p>
+
+        <iframe
+            src="https://open.spotify.com/embed/playlist/37i9dQZF1EJFRpV3qZ8OSQ?utm_source=generator"
+            width="100%"
+            height="352"
+            frameborder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+        </iframe>
+
+    </div>
+</section>
+
+    <section class="cards">
+
+        <article class="card">
+            <h2>💗 Our Memories</h2>
+
+            <p>
+                Every moment with you becomes one of those memories
+                I want to keep forever.
+            </p>
+        </article>
+
+        <article class="card">
+            <h2>🌙 My Favorite Place</h2>
+
+            <p>
+                Anywhere is my favorite place when I'm with you.
+            </p>
+        </article>
+
+    </section>
+
+    <section class="card reasons">
+
+        <h2 style="text-align:center;">
+            Reasons I Love You ❤️
+        </h2>
+
+        <div class="reason-buttons">
+
+            <button class="reason">
+                Your smile<br>♡
+            </button>
+
+            <button class="reason">
+                Your beautiful eyes<br>♡
+            </button>
+
+            <button class="reason">
+                The way you make me feel<br>♡
+            </button>
+
+        </div>
+
+    </section>
+
+    <section class="surprise">
+
+        <button id="loveButton">
+            ✨ Give Me a Little Love
+        </button>
+
+        <div id="surpriseText" class="surprise-text">
+            Click the button. I saved something special here.
+        </div>
+
+    </section>
+
+    <div class="footer">
+        Made with ❤️ for Astrid
+    </div>
+
+</main>
+
+<script>
+
+const letter = document.getElementById("letter");
+const openLetter = document.getElementById("openLetter");
+
+const surpriseButton = document.getElementById("surpriseButton");
+const loveButton = document.getElementById("loveButton");
+
+const surpriseText = document.getElementById("surpriseText");
+
+
+// Open / close letter
+openLetter.addEventListener("click", function () {
+
+    letter.classList.toggle("open");
+
+    if (letter.classList.contains("open")) {
+
+        openLetter.textContent = "💌 Close My Letter";
+
+    } else {
+
+        openLetter.textContent = "💌 Open My Letter";
+
+    }
+
+});
+
+
+// Surprise messages
+const messages = [
+
+    "You are my favorite person. ❤️",
+
+    "If I could choose one person again, it would still be you.",
+
+    "You make ordinary days feel special. ✨",
+
+    "I hope you know how deeply loved you are.",
+
+    "You + me = my favorite story. 💕",
+
+    "I would choose you in every lifetime. ❤️",
+
+    "Astrid, you're the girl I dreamed of. ❤️"
+
+];
+
+let messageIndex = -1;
+
+function showLoveMessage() {
+
+    messageIndex++;
+
+    if (messageIndex >= messages.length) {
+        messageIndex = 0;
+    }
+
+    surpriseText.textContent = messages[messageIndex];
+
+}
+
+
+// Surprise button
+surpriseButton.addEventListener("click", function () {
+
+    letter.classList.add("open");
+
+    openLetter.textContent = "💌 Close My Letter";
+
+    showLoveMessage();
+
+    document.querySelector(".surprise").scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+});
+
+
+// Love button
+loveButton.addEventListener("click", function () {
+
+    showLoveMessage();
+
+});
+
+
+// Reasons
+const reasons = document.querySelectorAll(".reason");
+
+const reasonMessages = [
+
+    "That smile can completely change my day. ❤️",
+
+    "I could get lost in those eyes forever. 💗",
+
+    "Being close to you is one of my favorite feelings. ✨"
+
+];
+
+reasons.forEach(function(button, index) {
+
+    button.addEventListener("click", function() {
+
+        surpriseText.textContent = reasonMessages[index];
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
+```
